@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ol>
+            <li><a href="/">Home</a></li>
+            <li>New user</li>
+        </ol>
+    </nav>
+    <div>
+        
+    </div>
+    <form action="/addUser" method="POST" novalidate>
+        <div>
+            <div>
+                <input type="text" id="firstName" name="first_name" placeholder="First name">
+                <label for="firstName">First Name</label>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="text" id="lastName" name="last_name" placeholder="Last name">
+                <label for="lastName">Last Name</label>
+            </div>
+        </div> 
+        <div>
+            <div>
+                <input type="text" id="email" name="enail" placeholder="email@gmail.com">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="text" id="phone" name="phone" placeholder="08000000000">
+                <label for="phone">Phone Number</label>
+            </div>
+        </div> 
+        <div>
+            <div>
+                <textarea type="text" id="comment" name="comment" placeholder="comment">
+                <label for="comment">Comment</label>
+            </div>
+        </div> 
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -7,6 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <div>
+        <div>
+            <h1>Users</h1>
+        </div>
+        <div>
+            <a href="/addUser" type="button">+ add user</a>
+        </div>
+    </div>
     <table>
         <thead>
             <tr>
@@ -27,7 +35,7 @@
                 <td>07066791803</td>
                 <td>
                     <a href="#">view</a>
-                    <a href="#">edit</a>
+                    <a href="/editUser/{{this.id}}">edit</a>
                     <a href="#">delete</a>
                 </td>
             </tr>
