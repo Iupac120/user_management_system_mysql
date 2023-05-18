@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <nav>
+            <div>
+                <a href="#">User Management System</a>
+                <button type="button">
+                    <span></span>
+                </button>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="/">Home</a>
+                        </li>
+                    </ul>
+                    <form method="POST" action="/" novalidate>
+                        <input type="search" name="search" placeholder="search">
+                        <button type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <main>
+            <%- body %>
+        </main>
+        <br>
+        <footer>
+            &copy; Iupac120 2023
+        </footer>
+    </div>
+</body>
+</html>

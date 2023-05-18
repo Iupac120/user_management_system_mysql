@@ -16,7 +16,8 @@ const getAllUsers = (req,res) => {
         connection.query('SELECT * FROM user',(err, result) => {
             connection.release()
             if (!err){
-                res.sendFile(path.join(__dirname,'views','index'),{result})
+                res.render('index',{result})
+                console.log({result})
             }else{
                 console.log(err)
             }
@@ -34,7 +35,7 @@ const findUser = (req,res) => {
         connection.query('SELECT * FROM user WHERE first_name LIKE ? OR last_name LIKE ?',['%' + searchName + '%','%' + searchName + '%'],(err, result) => {
             connection.release()
             if (!err){
-                res.sendFile(path.join(__dirname,'views','index'),{result})
+                res.render('index',{result})
             }else{
                 console.log(err)
             }
@@ -43,7 +44,7 @@ const findUser = (req,res) => {
     })
 }
 const getNewUserForm = (req,res) => {
-    res.sendFile(path.join(__dirname, 'views', 'add-user'))
+    res.render('add-user')
 }
 const addUser = (req,res) => {
     const {first_name, last_name, enail, phone, comment} = req.body
@@ -55,7 +56,7 @@ const addUser = (req,res) => {
         connection.query('INSERT INTO user SET first_name = ?, last_name = ?, enail = ?, phone = ?, comment = ?',[first_name,last_name,enail,phone,comment],(err, result) => {
             connection.release()
             if (!err){
-                res.sendFile(path.join(__dirname,'views','add-user'),{result})
+                res.render('add-user',{alert: 'user added successfully.'})
             }else{
                 console.log(err)
             }
@@ -67,12 +68,13 @@ const addUser = (req,res) => {
 const getEditUser = (req,res) => {
     pool.getConnection((err,connection) => {
         if (err) throw err
+        console.log('edit')
         console.log('connected at' + connection.threadId)
         //using the connection
         connection.query('SELECT * FROM user WHERE id = ?',[req.params.id],(err, result) => {
             connection.release()
             if (!err){
-                res.sendFile(path.join(__dirname,'views','index'),{result})
+                res.render('edit-user',{result})
             }else{
                 console.log(err)
             }
@@ -81,13 +83,12 @@ const getEditUser = (req,res) => {
     })
 
 }
-const editUser = (req,res) => {
 
-}
 
 module.exports = {
     getAllUsers,
     findUser,
     getNewUserForm,
-    addUser
+    addUser,
+    getEditUser
 }

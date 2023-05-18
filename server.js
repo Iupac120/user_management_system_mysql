@@ -2,14 +2,16 @@ require('dotenv').config()
 const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()
-const expresshbs = require('express-handlebars')
+const expressLayouts = require('express-ejs-layouts')
 const mysql = require('mysql')
 const path = require('path')
 
 const PORT = process.env.PORT || 3000
 app.use(express.json())
+app.use(expressLayouts)
 app.use(express.urlencoded({extnded: false}))
-app.use(express.static('public'))
+//app.use(express.static('public'))
+app.set('view engine','ejs')
 
 // routes
 app.use('/', require('./routes/user'))

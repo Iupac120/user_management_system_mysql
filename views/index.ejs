@@ -9,7 +9,7 @@
 <body>
     <div>
         <div>
-            <h1>Users</h1>
+            <h4>Users</h4>
         </div>
         <div>
             <a href="/addUser" type="button">+ add user</a>
@@ -27,18 +27,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th>1</th>
-                <td>Augustine</td>
-                <td>Ofor</td>
-                <td>oforokpara@gmail.com</td>
-                <td>07066791803</td>
-                <td>
-                    <a href="#">view</a>
-                    <a href="/editUser/{{this.id}}">edit</a>
-                    <a href="#">delete</a>
-                </td>
-            </tr>
+            <% result.forEach(res => {%>
+                <tr>
+                    <th><%- res.id %></th>
+                    <td><%- res.first_name %></td>
+                    <td><%- res.last_name %></td>
+                    <td><%- res.enail %></td>
+                    <td><%- res.phone %></td>
+                    <td>
+                        <a href="#">view</a>
+                        <a href="/editUser/<%- res.id %>">edit</a>
+                        <a href="#">delete</a>
+                    </td>
+                </tr>
+            <%}) %>
         </tbody>
     </table>
 </body>

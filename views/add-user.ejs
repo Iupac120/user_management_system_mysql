@@ -10,41 +10,43 @@
     <nav>
         <ol>
             <li><a href="/">Home</a></li>
-            <li>Edit user</li>
+            <li>New user</li>
         </ol>
     </nav>
-    <div>
-        
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> Indicates a successful or positive action.
     </div>
-    <form action="/editUser" method="POST" novalidate>
+      
+    <form action="/addUser" method="POST" novalidate>
         <div>
             <div>
-                <input type="text" id="firstName" value={{this.first_name}} placeholder="First name">
                 <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="first_name" placeholder="First name">
             </div>
         </div>
         <div>
             <div>
-                <input type="text" id="lastName" value={{this.last_name}} placeholder="Last name">
                 <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="last_name" placeholder="Last name">
             </div>
         </div> 
         <div>
             <div>
-                <input type="text" id="email" value={{this.enail}} placeholder="email@gmail.com">
                 <label for="email">Email</label>
+                <input type="text" id="email" name="enail" placeholder="email@gmail.com">
             </div>
         </div>
         <div>
             <div>
-                <input type="text" id="phone" value={{this.phone}} placeholder="08000000000">
                 <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="08000000000">
             </div>
         </div> 
         <div>
             <div>
-                <textarea type="text" id="comment" name="comment" placeholder="comment">{{this.comment}}</textarea>
                 <label for="comment">Comment</label>
+                <textarea type="text" id="comment" name="comment" placeholder="comment"></textarea>
             </div>
         </div> 
         <div>
