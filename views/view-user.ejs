@@ -1,0 +1,32 @@
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li>View user</li>
+    </ul>
+</nav>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Enail</th>
+                <th>Phone</th>
+                <th>comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% result.forEach(res => {%>
+                <tr>
+                    <th><%- res.id %></th>
+                    <td><%- res.first_name %></td>
+                    <td><%- res.last_name %></td>
+                    <td><%- res.enail %></td>
+                    <td><%- res.phone %></td>
+                    <td><%- res.comment %></td>
+                </tr>
+            <%}) %>
+        </tbody>
+    </table>
+</div>

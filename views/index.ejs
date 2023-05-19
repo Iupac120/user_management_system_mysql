@@ -35,9 +35,9 @@
                     <td><%- res.enail %></td>
                     <td><%- res.phone %></td>
                     <td>
-                        <a href="#">view</a>
+                        <a href="/viewUser/<%- res.id %>">view</a>
                         <a href="/editUser/<%- res.id %>">edit</a>
-                        <a href="#">delete</a>
+                        <a href="/<%- res.id %>">delete</a>
                     </td>
                 </tr>
             <%}) %>

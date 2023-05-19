@@ -83,12 +83,84 @@ const getEditUser = (req,res) => {
     })
 
 }
+const updateUser = (req,res) => {
+    const {first_name, last_name, enail, phone, comment} = req.body
+    pool.getConnection((err,connection) => {
+        if (err) throw err
+        console.log('edit')
+        console.log('connected at' + connection.threadId)
+        //using the connection
+        connection.query('UPDATE user SET first_name = ?, last_name = ?, enail = ?, phone = ?, comment =? WHERE id = ?',[first_name, last_name, enail, phone, comment, req.params.id],(err, result) => {
+            connection.release()
+            if (!err){
+                pool.getConnection((err,connection) => {
+                    if (err) throw err
+                    console.log('edit')
+                    console.log('connected at' + connection.threadId)
+                    //using the connection
+                    connection.query('SELECT * FROM user WHERE id = ?',[req.params.id],(err, result) => {
+                        connection.release()
+                        if (!err){
+                            res.render('view-user',{result})
+                        }else{
+                            console.log(err)
+                        }
+                            console.log('display data in the table\n',result)
+                    })
+                })
+            
+            }else{
+                console.log(err)
+            }
+                console.log('display data in the table\n',result)
+        })
+    })
 
+}
+
+const deleteUser = (req,res) => {
+    pool.getConnection((err,connection) => {
+        if (err) throw err
+        console.log('edit')
+        console.log('connected at' + connection.threadId)
+        //using the connection
+        connection.query('DELETE FROM user WHERE id = ?',[req.params.id],(err, result) => {
+            connection.release()
+            if (!err){
+                res.redirect('/')
+            }else{
+                console.log(err)
+            }
+                console.log('display data in the table\n',result)
+        })
+    })
+
+}
+
+const viewAllUser = (req,res) => {
+    pool.getConnection((err,connection) => {
+        if (err) throw err
+        console.log('connected at' + connection.threadId)
+        //using the connection
+        connection.query('SELECT * FROM user WHERE id = ?',[req.params.id],(err, result) => {
+            connection.release()
+            if (!err){
+                res.render('view-user',{result})
+            }else{
+                console.log(err)
+            }
+                console.log('display data in the table\n',result)
+        })
+    })
+}
 
 module.exports = {
     getAllUsers,
     findUser,
     getNewUserForm,
     addUser,
-    getEditUser
+    getEditUser,
+    updateUser,
+    deleteUser,
+    viewAllUser
 }
